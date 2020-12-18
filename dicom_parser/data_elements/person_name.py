@@ -1,6 +1,6 @@
 from dicom_parser.data_element import DataElement
 from dicom_parser.utils.value_representation import ValueRepresentation
-from pydicom.valuerep import PersonName as PydicomPersonName
+from pydicom.valuerep import PersonName
 
 
 class PersonName(DataElement):
@@ -13,8 +13,8 @@ class PersonName(DataElement):
         "name_suffix",
     )
 
-    def parse_value(self, value: PydicomPersonName) -> dict:
-        if isinstance(value, PydicomPersonName):
+    def parse_value(self, value: PersonName) -> dict:
+        if isinstance(value, PersonName):
             return {
                 component: getattr(value, component) for component in self.COMPONENTS
             }

@@ -166,7 +166,7 @@ class Series:
             for image in self.images
         ]
         unique_values = set(values)
-        return values if len(unique_values) > 1 else unique_values.pop()
+        return unique_values if len(unique_values) > 1 else unique_values.pop()
 
     def get_spatial_resolution(self) -> tuple:
         sample_header = self.images[0]
